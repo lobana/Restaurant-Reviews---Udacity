@@ -22,7 +22,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-        mapboxToken: '<your MAPBOX API KEY HERE>',
+        mapboxToken: 'pk.eyJ1IjoibG9iYW5hIiwiYSI6ImNqemZtNHM2ejA1OXEzcG5nNDRmNHpjYjQifQ.m4Z3iqpAKCBsrnDVDKWvxg',
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -35,7 +35,7 @@ initMap = () => {
   });
 }  
  
-/* window.initMap = () => {
+ window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
       console.error(error);
@@ -53,7 +53,7 @@ initMap = () => {
 
 /**
  * Get current restaurant from page URL.
- */
+ *//
 fetchRestaurantFromURL = (callback) => {
   if (self.restaurant) { // restaurant already fetched!
     callback(null, self.restaurant)

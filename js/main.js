@@ -78,7 +78,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'pk.eyJ1IjoibG9iYW5hIiwiYSI6ImNqemZtNHM2ejA1OXEzcG5nNDRmNHpjYjQifQ.m4Z3iqpAKCBsrnDVDKWvxg',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -88,7 +88,7 @@ initMap = () => {
 
   updateRestaurants();
 }
-/* window.initMap = () => {
+ window.initMap = () => {
   let loc = {
     lat: 40.722216,
     lng: -73.987501
@@ -103,7 +103,7 @@ initMap = () => {
 
 /**
  * Update page and map for current restaurants.
- */
+ *//
 updateRestaurants = () => {
   const cSelect = document.getElementById('cuisines-select');
   const nSelect = document.getElementById('neighborhoods-select');
@@ -208,4 +208,27 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
+/**
+ * Add The service worker .
+ */
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./js/sw/sw.js')
+  .then((reg) => {
+    // registration worked
+    if(reg.installing) {
+      console.log('Service worker installing');
+    } else if(reg.waiting) {
+      console.log('Service worker installed');
+    } else if(reg.active) {
+      console.log('Service worker active');
+}
+    console.log('Registration succeeded. Scope is ' + reg.scope);
+  }).catch((error) => {
+    // registration failed
+    console.log('Registration failed with ' + error);
+  });
+}
+
+
 
