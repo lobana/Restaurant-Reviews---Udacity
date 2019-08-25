@@ -136,6 +136,9 @@ nav h1 a {
 label {
   visibility: hidden;
 }
+.filter-label {
+  color: white;
+}
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
@@ -192,7 +195,7 @@ label {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  -webkit-transition-duration: 0.4s;
+  
 }
 
 /* ====================== Restaurant Details ====================== */
@@ -257,9 +260,12 @@ label {
   padding: 140px 40px 30px;
   width: 50%;
 }
-#reviews-container {
-  padding: 30px 40px 80px;
+#restaurant-container {
+  display: flex;
+  flex-direction: column;
 }
+
+
 #reviews-container h2 {
   color: #f58500;
   font-size: 24pt;
@@ -282,9 +288,29 @@ label {
   position: relative;
   width: 85%;
 }
-#reviews-list li p {
-  margin: 0 0 10px;
+#reviews-list li>p:nth-child(1) {
+  width: 50%;
+  font-weight: bolder;
+  align-self: center;
+  color: #174375;
 }
+
+
+#reviews-list li>p:nth-child(2) {
+  align-self: center;
+  width: 50%;
+  font-weight: bolder;
+  text-align: right;
+  color: black
+}
+
+
+#reviews-list li>p:nth-child(3) {
+  width: 100%;
+  font-weight: bolder;
+  color: #174375;
+}
+
 #restaurant-hours td {
   color: #666;
 }
@@ -346,5 +372,15 @@ label {
   }
   #reviews-container h2 {
     text-align: center;
+  }
+  @media only screen and (min-width: 750px) {
+  #restaurants-list li {
+    max-width: 45%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #restaurants-list li {
+    max-width: 300px;
   }
 }

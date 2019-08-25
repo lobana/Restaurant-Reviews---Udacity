@@ -9,7 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 8000 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    return `./data/restaurants.json`;
   }
 
   /**
@@ -69,18 +69,9 @@ class DBHelper {
   /**
    * Fetch restaurants by a neighborhood with proper error handling.
    */
-  static fetchRestaurantByNeighborhood(neighborhood, callback) {
-    // Fetch all restaurants
-    DBHelper.fetchRestaurants((error, restaurants) => {
-      if (error) {
-        callback(error, null);
-      } else {
-        // Filter restaurants to have only given neighborhood
-        const results = restaurants.filter(r => r.neighborhood == neighborhood);
-        callback(null, results);
-      }
-    });
-  }
+  //static fetchRestaurantByNeighborhood(neighborhood, callback) {
+    //
+
 
   /**
    * Fetch restaurants by a cuisine and a neighborhood with proper error handling.
@@ -156,7 +147,7 @@ class DBHelper {
   /**
    * Map marker for a restaurant.
    */
-    /*static mapMarkerForRestaurant(restaurant, map) {
+    static mapMarkerForRestaurant(restaurant, map) {
     // https://leafletjs.com/reference-1.3.0.html#marker  
     const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng],
       {title: restaurant.name,
@@ -165,17 +156,8 @@ class DBHelper {
       })
       marker.addTo(newMap);
     return marker;
-  } */
-  static mapMarkerForRestaurant(restaurant, map) {
-    const marker = new google.maps.Marker({
-      position: restaurant.latlng,
-      title: restaurant.name,
-      url: DBHelper.urlForRestaurant(restaurant),
-      map: map,
-      animation: google.maps.Animation.DROP}
-    );
-    return marker;
   } 
+
 
 }
 
